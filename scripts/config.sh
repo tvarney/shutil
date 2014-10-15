@@ -18,6 +18,8 @@ export SRC_EMAIL=""
 export SRC_DATEFMT="%A, %B %d, %Y"
 
 source "${SHUTILS}/colors.sh"
-source "${SHUTILS}/up.sh"
 source "${SHUTILS}/goto.sh"
 source "${SHUTILS}/setprompts.sh"
+source "${SHUTILS}/up.sh"
+source "${SHUTILS}/welcome.sh"
+

@@ -1,0 +1,47 @@
+#!/bin/bash
+
+##
+# File: cleandir
+# Author: Troy Varney
+# Contact: tvarney@cs.utexas.edu
+# Date: Wednesday, October 15, 2014
+# Description: Remove all files matching a predetermined pattern from the
+# current directory.
+##
+
+##
+# Copyright (C) 2014 Troy Varney <tvarney@cs.utexas.edu>
+#
+# cleandir is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public LIcence as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later
+# version.
+#
+# cleandir is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+# A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License along with
+# cleandir. If not, see <http://www.gnu.org/licenses/>.
+##
+
+function _cleandir()
+{
+    local ask=""
+    if [[ -n "$CLEAN_ASK" ]]; then
+        ask="-i"
+    fi
+    for pattern in ${CLEAN[@]}
+    do
+        for file in "${pattern}"
+	do
+	    if [ -f "$file" ]; then
+	        rm ${ask} "$file" "$@"
+		if [ "$CLEAN_ASK" != "true" ]; then
+		    echo "cleandir: removing $file"
+                fi
+            fi
+        done
+    done
+}
+_cleandir "$@"

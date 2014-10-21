@@ -29,7 +29,7 @@ welcome() {
     date
     
     if [ -n `which fortune` ]; then
-        echo -e "${C_BLUE}"
+        echo -e "${C_BLUE}`fortune`"
     fi
     tput sgr0
 }

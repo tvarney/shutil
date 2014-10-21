@@ -28,7 +28,7 @@
 function _cleandir()
 {
     local ask=""
-    if [[ -n "$CLEAN_ASK" ]]; then
+    if [ "$CLEAN_ASK" == "yes" ] || [ "$CLEAN_ASK" == "y" ]; then
         ask="-i"
     fi
     for pattern in ${CLEAN[@]}
@@ -37,7 +37,7 @@ function _cleandir()
 	do
 	    if [ -f "$file" ]; then
 	        rm ${ask} "$file" "$@"
-		if [ "$CLEAN_ASK" != "true" ]; then
+		if [ -z "$ask" ]; then
 		    echo "cleandir: removing $file"
                 fi
             fi

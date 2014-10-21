@@ -10,7 +10,7 @@ export SHUTILS="${HOME}/.shutils"
 export PATH="${PATH}:${SHUTILS}/bin"
 
 export CLEAN="*~ .*~ #* .#* *.tmp, *.temp"
-export CLEAN_ASK="True"
+export CLEAN_ASK="yes"
 
 export SRC_AUTHOR=""
 export SRC_COMPANY=${SRC_AUTHOR}
